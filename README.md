@@ -13,6 +13,8 @@ This application is our intro to servers, the web request response cycle, and AP
 ## Architecture
 
 Technologies: React, Javascript, Axios, LocationIQ Geolocating API
+
+![image](./code-301-city-explorer-diagram.png)
 <!-- Provide a detailed description of the application design. What technologies (languages, libraries, etc) you're using, and any other relevant design information. -->
 
 ## Change Log
