@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import SearchForm from './components/SearchForm';
 import ErrorAlert from './components/ErrorAlert';
+import SearchResult from './components/SearchResult';
 import axios from 'axios';
 
 import './App.scss';
@@ -14,6 +15,7 @@ class App extends Component {
         mapUrl: '',
         error: false,
         errorMessage: '',
+        weatherData: []
     };
 
     this.submit = this.submit.bind(this);
@@ -25,42 +27,45 @@ class App extends Component {
     try {
       const key = process.env.REACT_APP_LOCATION_IQ_KEY;
       const API = `https://us1.locationiq.com/v1/search?key=${key}&q=${searchVal}&format=json`;
-      // const API = `https://us1.locationiq.com/v1/search?key=key&q=${searchVal}&format=json`;
       const response = await axios.get(API);
+      
       const loc = response.data[0];
-
+      const city = loc.display_name.split(',')[0];
+      const weatherResponse = await axios.get(`http://localhost:3001/weather?searchQuery=${city}&lat=${loc.lat}&lon=${loc.lon}`);
+      const weatherData = weatherResponse.data;
+      console.log(city, loc, weatherResponse, weatherData);
+      
       const mapUrl = `https://maps.locationiq.com/v3/staticmap?key=${key}&center=${loc.lat},${loc.lon}&zoom=13&markers=icon:small-red-cutout|markerLocation=${loc.lat},${loc.lon}`
 
-      console.log(loc);
-      this.setState({location: loc, mapUrl: mapUrl});
+      this.setState({location: loc, mapUrl: mapUrl, weatherData: weatherData});
     } catch (error) {
       console.log(error);
       this.setState({error: true, errorMessage: error.message})
     }
   }
 
-  renderResult = () => {
-    return(
-      <>
-        {this.state.location.display_name &&
-          <div className='Results row d-flex justify-content-center' >
-            <div className='Results-Data col-sm-4 text-start p-2'>
-              <h2 className='text-center'>Results:</h2>
-              <br />
-              <div><b>City: </b>{this.state.location.display_name}</div>
-              <br />
-              <div><b>Latitude: </b>{this.state.location.lat}</div>
-              <br />
-              <div><b>Longitude: </b>{this.state.location.lon}</div>
-            </div>
-            <div className='Results-Map col-auto p-2'>
-              <img src={this.state.mapUrl} alt='city map' />
-            </div>
-          </div>
-        }
-      </>
-    );
-  }
+  // renderResult = () => {
+  //   return(
+  //     <>
+  //       {this.state.location.display_name &&
+  //         <div className='Results row d-flex justify-content-center' >
+  //           <div className='Results-Data col-sm-4 text-start p-2'>
+  //             <h2 className='text-center'>Results:</h2>
+  //             <br />
+  //             <div><b>City: </b>{this.state.location.display_name}</div>
+  //             <br />
+  //             <div><b>Latitude: </b>{this.state.location.lat}</div>
+  //             <br />
+  //             <div><b>Longitude: </b>{this.state.location.lon}</div>
+  //           </div>
+  //           <div className='Results-Map col-auto p-2'>
+  //             <img src={this.state.mapUrl} alt='city map' />
+  //           </div>
+  //         </div>
+  //       }
+  //     </>
+  //   );
+  // }
 
   render() {
     return (
@@ -74,7 +79,7 @@ class App extends Component {
             <ErrorAlert errorMessage={this.state.errorMessage} />
           }
           <hr />
-          {this.renderResult()}
+          <SearchResult location={this.state.location} mapUrl={this.state.mapUrl} weatherData={this.state.weatherData} />
         </main>
         <footer className='py-4'>
           &copy; Julian Barker, 2022

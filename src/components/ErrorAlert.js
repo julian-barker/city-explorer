@@ -15,5 +15,4 @@ class ErrorAlert extends Component {
   }
 }
 
-
 export default ErrorAlert;

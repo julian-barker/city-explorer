@@ -4,6 +4,7 @@
 **Version**: 1.0.0 (increment the patch/fix version number if you make more commits past your first submission)
 
 ## Overview
+
 This application is our intro to servers, the web request response cycle, and APIs.  We will be building a React application that uses the Axios library to make user-initiated requests for data from a third-party API. W will use the LocationIQ GeoLocating API.
 
 ## Getting Started
