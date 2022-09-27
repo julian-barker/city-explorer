@@ -26,7 +26,8 @@ Technologies: React, Javascript, Axios, LocationIQ Geolocating API
 
 ## Change Log
 
-09-26-2022 5:00 - Application now has basic styling and displays results data and a smap of the result location.
+09-26-2022 1700 - Application now has basic styling and displays results data and a smap of the result location.
+09-27-2022 1551 - Application now displays the weather forecast from data received from local Express Server.
 
 ## Credit and Collaborations
 
@@ -34,7 +35,7 @@ Worked with Ian Forrester on displaying the data and map.
 
 ## Time Estimates
 
-### Name of feature: Display Data
+### Display Data
 
 Estimate of time needed to complete: 40 min
 
@@ -44,7 +45,7 @@ Finish time: 1400
 
 Actual time needed to complete: 1 hr
 
-### Name of feature: Display Map
+### Display Map
 
 Estimate of time needed to complete: 30 min
 
@@ -54,7 +55,7 @@ Finish time: 1415
 
 Actual time needed to complete: 15 min
 
-### Name of feature: Style
+### Style
 
 Estimate of time needed to complete: 30 min
 
@@ -63,3 +64,13 @@ Start time: 1500
 Finish time: 1600
 
 Actual time needed to complete: 1 hr
+
+### Display Weather
+
+Estimate of time needed to complete: 1hr
+
+Start time: 1510
+
+Finish time: 1550
+
+Actual time needed to complete: 40 min
