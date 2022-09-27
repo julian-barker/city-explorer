@@ -15,7 +15,7 @@ class SearchForm extends Component {
 
   render() {
     return (
-      <form className='container d-flex flex-column align-items-start w-50 SearchForm'>
+      <form className='SearchForm container d-flex flex-column align-items-start w-50 p-1'>
         <Form.Label htmlFor="citySearch" className='ms-3'>Location</Form.Label>
         <div className='container d-flex' >
           <Form.Control

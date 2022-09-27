@@ -8,7 +8,13 @@ This application is our intro to servers, the web request response cycle, and AP
 <!-- Provide a high level overview of what this application is and why you are building it, beyond the fact that it's an assignment for this class. (i.e. What's your problem domain?) -->
 
 ## Getting Started
-<!-- What are the steps that a user must take in order to build this app on their own machine and get it running? -->
+
+1. create-react-app
+2. delete cruft
+3. add form to App component to gather user input
+4. get locationIQ API key and store in .env
+5. 
+
 
 ## Architecture
 

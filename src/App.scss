@@ -1,7 +1,7 @@
-@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;700&family=Fira+Sans:wght@400;900&family=Nabla&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;700&family=Fira+Sans:wght@400;900&family=Lobster&family=Nabla&display=swap');
 
 html {
-  font: 20px 'Fira Sans', sans-serif;
+  font: 18px 'Fira Sans', sans-serif;
 }
 
 .App {
@@ -12,29 +12,35 @@ html {
 }
 
 header {
-  margin-bottom: 1rem;
-  padding: 1rem 0;
   color: #eee;
   background-color: #222;
 
+  h1 {
+    font: 4rem 'Lobster';
+  }
 }
 
 main {
   background-color: lightblue;
-  padding: 1rem 0;
+
+  .SearchForm {
+    border: 3px solid white;
+    border-radius: 1rem;
+    background-color: rgb(255, 242, 219);
+  }
+
+  .Results-Data, .Results-Map {
+    border: 2px solid gray;
+    background-color: rgb(255, 242, 219);
+  }
+
 }
 
-.SearchForm {
-  border: 3px solid white;
-  border-radius: 1rem;
-  padding: 1rem;
-  background-color: rgb(213, 159, 253);
-}
+
 
 footer{
   position: absolute;
-  padding: 2rem 0;
   bottom: 0;
   width: 100%;
-  background-color: #444;
+  background-color: #aaa;
 }

@@ -40,35 +40,42 @@ class App extends Component {
 
   renderResult = () => {
     return(
-      <div>
+      <>
         {this.state.location.display_name &&
-        <>
-          <div><b>City: </b>{this.state.location.display_name}</div>
-          <div><b>Latitude: </b>{this.state.location.lat}</div>
-          <div><b>Longitude: </b>{this.state.location.lon}</div>
-          <hr />
-          <img src={this.state.mapUrl} alt='city map' />
-        </>
+          <div className='Results row d-flex justify-content-evenly' >
+            <div className='Results-Data col-sm-4 text-start p-2'>
+              <h2 className='text-center'>Results:</h2>
+              <br />
+              <div><b>City: </b>{this.state.location.display_name}</div>
+              <br />
+              <div><b>Latitude: </b>{this.state.location.lat}</div>
+              <br />
+              <div><b>Longitude: </b>{this.state.location.lon}</div>
+            </div>
+            <div className='Results-Map col-auto p-2'>
+              <img src={this.state.mapUrl} alt='city map' />
+            </div>
+          </div>
         }
-        {this.state.error && 
-          <ErrorAlert setShow={this.setShow} errorMessage={this.state.errorMessage} />
-        }
-      </div>
+      </>
     );
   }
 
   render() {
     return (
       <div className="App">
-        <header>
+        <header className='mb-3 py-2'>
           <h1>City Explorer</h1>
         </header>
-        <main>
+        <main className='p-2'>
           <SearchForm submit={this.submit} />
+          {this.state.error && 
+            <ErrorAlert errorMessage={this.state.errorMessage} />
+          }
           <hr />
           {this.renderResult()}
         </main>
-        <footer>
+        <footer className='py-4'>
           &copy; Julian Barker, 2022
         </footer>
       </div>
