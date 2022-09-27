@@ -1,11 +1,10 @@
 # Project Name
 
-**Author**: Your Name Goes Here
+**Author**: Julian Barker
 **Version**: 1.0.0 (increment the patch/fix version number if you make more commits past your first submission)
 
 ## Overview
 This application is our intro to servers, the web request response cycle, and APIs.  We will be building a React application that uses the Axios library to make user-initiated requests for data from a third-party API. W will use the LocationIQ GeoLocating API.
-<!-- Provide a high level overview of what this application is and why you are building it, beyond the fact that it's an assignment for this class. (i.e. What's your problem domain?) -->
 
 ## Getting Started
 
@@ -23,15 +22,43 @@ This application is our intro to servers, the web request response cycle, and AP
 Technologies: React, Javascript, Axios, LocationIQ Geolocating API
 
 ![image](./code-301-city-explorer-diagram.png)
-<!-- Provide a detailed description of the application design. What technologies (languages, libraries, etc) you're using, and any other relevant design information. -->
 
 ## Change Log
-09-26-2022 5:00 - Application now has basic styling and displays results data and a smap of the result location.
-<!-- Use this area to document the iterative changes made to your application as each feature is successfully implemented. Use time stamps. Here's an example:
 
-01-01-2001 4:59pm - Application now has a fully-functional express server, with a GET route for the location resource. -->
+09-26-2022 5:00 - Application now has basic styling and displays results data and a smap of the result location.
 
 ## Credit and Collaborations
 
 Worked with Ian Forrester on displaying the data and map.
-<!-- Give credit (and a link) to other people or resources that helped you build this application. -->
+
+## Time Estimates
+
+### Name of feature: Display Data
+
+Estimate of time needed to complete: 40 min
+
+Start time: 1300
+
+Finish time: 1400
+
+Actual time needed to complete: 1 hr
+
+### Name of feature: Display Map
+
+Estimate of time needed to complete: 30 min
+
+Start time: 1400
+
+Finish time: 1415
+
+Actual time needed to complete: 15 min
+
+### Name of feature: Style
+
+Estimate of time needed to complete: 30 min
+
+Start time: 1500
+
+Finish time: 1600
+
+Actual time needed to complete: 1 hr
