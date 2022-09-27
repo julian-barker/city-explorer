@@ -20,6 +20,7 @@ class App extends Component {
   }
 
   async submit(searchVal, e) {
+    this.setState({error: false, location: {}});
     e.preventDefault();
     try {
       const key = process.env.REACT_APP_LOCATION_IQ_KEY;
