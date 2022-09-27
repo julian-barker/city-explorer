@@ -43,7 +43,7 @@ class App extends Component {
     return(
       <>
         {this.state.location.display_name &&
-          <div className='Results row d-flex justify-content-evenly' >
+          <div className='Results row d-flex justify-content-center' >
             <div className='Results-Data col-sm-4 text-start p-2'>
               <h2 className='text-center'>Results:</h2>
               <br />
