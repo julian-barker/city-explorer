@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import Alert from 'react-bootstrap/Alert';
-import Button from 'react-bootstrap/Button';
 
 class ErrorAlert extends Component {
 
