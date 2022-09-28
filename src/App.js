@@ -7,18 +7,6 @@ import axios from 'axios';
 import './App.scss';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-class Restaurant {
-  constructor(id, name, rating, price, phone, imageUrl, link) {
-    this.id = id;
-    this.name = name;
-    this.rating = rating;
-    this.price = price;
-    this.phone = phone;
-    this.imageUrl = imageUrl;
-    this.link = link;
-  }
-}
-
 class App extends Component {
   constructor(props) {
     super(props);
