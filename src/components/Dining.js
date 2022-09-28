@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import Restaurant from './Restaurant';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 class Dining extends Component {
 
