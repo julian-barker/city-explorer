@@ -40,38 +40,28 @@ class App extends Component {
     e.preventDefault();
     try {
       const locationKey = process.env.REACT_APP_LOCATION_IQ_KEY;
-      // const server = process.env.REACT_APP_SERVER_ADDRESS;
+      const servers = {local: process.env.REACT_APP_LOCAL_ADDRESS, heroku: process.env.REACT_APP_HEROKU_ADDRESS}
+      const currSource = 'heroku';
+      const baseUrl = servers[currSource];
 
       const locationResponse = await axios.get(`https://us1.locationiq.com/v1/search?key=${locationKey}&q=${searchVal}&format=json`);
       
       const loc = locationResponse.data[0];
       const city = loc.display_name.split(',')[0];
+
       
       const mapUrl = `https://maps.locationiq.com/v3/staticmap?key=${locationKey}&center=${loc.lat},${loc.lon}&zoom=13&markers=icon:small-red-cutout|markerLocation=${loc.lat},${loc.lon}`
       
-      const weatherResponse = await axios.get(`http://localhost:3001/weather?lat=${loc.lat}&lon=${loc.lon}`);
-      // const weatherResponse = await axios.get(`${server}/weather?lat=${loc.lat}&lon=${loc.lon}`);
+      const weatherResponse = await axios.get(`${baseUrl}/weather?lat=${loc.lat}&lon=${loc.lon}`);
       const weatherData = weatherResponse.data;
-      // const weatherResponse = await axios.get(`http://api.weatherbit.io/v2.0/forecast/daily?key=${weatherKey}&lat=${loc.lat}&lon=${loc.lon}`)
-      // const weatherData = weatherResponse.data.data;
+      console.log(weatherData);
 
-      const movieResponse = await axios.get(`http://localhost:3001/movies?query=${city}`);
-      // const movieResponse = await axios.get(`${server}/movies?query=${city}`);
+      const movieResponse = await axios.get(`${baseUrl}/movies?query=${city}`);
       const movieData = movieResponse.data;
-      // const movieResponse = await axios.get(`https://api.themoviedb.org/3/search/movie?api_key=${movieKey}&query=${city}`);
-      // const movieData = movieResponse.data.results;
+      console.log(movieData);
 
-      // const diningResponse = await axios.get(`http://localhost:3001/dining?lat=${loc.lat}&lon=${loc.lon}`);
-      // const diningResponse = await axios.get(`${server}/dining?query=${city}`);
-      // console.log(diningResponse);
-      // const diningData = diningResponse.data;
-      // const movieData = movieResponse.data.results;
-
-
-      const header = { Authorization: `Bearer ${process.env.REACT_APP_YELP_KEY}` }
-      const response = await axios.get(`https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?categories=restaurants&latitude=${loc.lat}&longitude=${loc.lon}`, { headers: header });
-      const data = response.data.businesses.slice(0,20);
-      const restaurants = data.map(v => new Restaurant(v.id, v.name, v.rating, v.price, v.phone, v.image_url, v.url));
+      const diningResponse = await axios.get(`${baseUrl}/dining?lat=${loc.lat}&lon=${loc.lon}`);
+      const diningData = diningResponse.data;
 
       
       console.log(`%c${city}`, 'color: coral; font-weight: bold; font-size: 18px');
@@ -80,16 +70,14 @@ class App extends Component {
       console.log('%cMovie Data', 'color: lightblue; font-weight: bold; font-size: 14px');
       console.log(movieResponse, movieData);
       console.log('%cDining Data', 'color: lightblue; font-weight: bold; font-size: 14px');
-      // console.log(diningResponse, diningData);
-      console.log(response, data, restaurants);
+      console.log(diningResponse, diningData);
       
       this.setState({
         location: loc, 
         mapUrl: mapUrl, 
         weatherData: weatherData, 
         movieData: movieData,
-        // diningData: diningData,
-        diningData: restaurants
+        diningData: diningData,
       });
     } catch (error) {
       console.log(error);
