@@ -31,6 +31,7 @@ class App extends Component {
       const servers = {local: process.env.REACT_APP_LOCAL_ADDRESS, heroku: process.env.REACT_APP_HEROKU_ADDRESS}
       const currSource = 'heroku';
       const baseUrl = servers[currSource];
+      console.log(baseUrl);
 
       const locationResponse = await axios.get(`https://us1.locationiq.com/v1/search?key=${locationKey}&q=${searchVal}&format=json`);
       
