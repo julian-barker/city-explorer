@@ -22,7 +22,9 @@ This application is our intro to servers, the web request response cycle, and AP
 
 Technologies: React, Javascript, Axios, LocationIQ Geolocating API
 
-![image](./code-301-city-explorer-diagram.png)
+![diagram](./imgs/code-301-city-explore-diagram.png)
+![diagram](./imgs/code-301-city-explorer-weather-diagram.png)
+![diagram](./imgs/code-301-city-explorer-API-diagram.png)
 
 ## Change Log
 
