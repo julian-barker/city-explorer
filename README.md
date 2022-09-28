@@ -28,6 +28,10 @@ Technologies: React, Javascript, Axios, LocationIQ Geolocating API
 
 09-26-2022 1700 - Application now has basic styling and displays results data and a smap of the result location.
 09-27-2022 1551 - Application now displays the weather forecast from data received from local Express Server.
+09-27-2022 1645 - Application now displays the weather forecast from data received from Weatherbit API.
+09-27-2022 1820 - Application now displays local movies forecast from data received from TMDB.
+09-27-2022 2200 - Application broken into more components.
+09-28-2022 1100 - Application now displays local restaurants from data received from Yelp Fusion.
 
 ## Credit and Collaborations
 
@@ -74,3 +78,43 @@ Start time: 1510
 Finish time: 1550
 
 Actual time needed to complete: 40 min
+
+### Display Weather (API)
+
+Estimate of time needed to complete: 1hr
+
+Start time: 1600
+
+Finish time: 1645
+
+Actual time needed to complete: 45 min
+
+### Display Movies (API)
+
+Estimate of time needed to complete: 1hr
+
+Start time: 1700
+
+Finish time: 1820
+
+Actual time needed to complete: 1hr 20min
+
+### Componentize
+
+Estimate of time needed to complete: 1hr
+
+Start time: 2130
+
+Finish time: 2200
+
+Actual time needed to complete: 30min
+
+### Display Restaurants (API)
+
+Estimate of time needed to complete: 1hr
+
+Start time: 0830
+
+Finish time: 1100
+
+Actual time needed to complete: 2hr 30min
