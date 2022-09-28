@@ -21,7 +21,7 @@ header {
 }
 
 main {
-  background-color: lightblue;
+  // background-color: lightblue;
 
   .SearchForm {
     border: 3px solid white;
@@ -29,18 +29,26 @@ main {
     background-color: rgb(255, 242, 219);
   }
 
-  .Results-Data, .Results-Map {
+  .Results-item {
     border: 2px solid gray;
     background-color: rgb(255, 242, 219);
   }
 
+  .weather-block {
+    background-color: rgb(27, 57, 98);
+    color: #eee;
+  }
+
 }
 
-
+.footer {
+  height: 11vh;
+}
 
 footer{
   position: absolute;
   bottom: 0;
   width: 100%;
+  height: 10vh;
   background-color: #aaa;
 }
