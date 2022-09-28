@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import Accordion from 'react-bootstrap/Accordion';
 import Weather from './Weather';
 import Movies from './Movies';
+import Dining from './Dining';
 
 class SearchResult extends Component {
 
@@ -27,13 +28,19 @@ class SearchResult extends Component {
               <Accordion.Item eventKey='0' className='Results-item text-center' >
                 <Accordion.Header className='text-center' >Weather</Accordion.Header>
                 <Accordion.Body>
-                  <Weather weatherData={this.props.weatherData} />
+                  <Weather data={this.props.weatherData} />
                 </Accordion.Body>
               </Accordion.Item>
               <Accordion.Item eventKey='1' className='Results-item' >
                 <Accordion.Header className='text-center' >Movies</Accordion.Header>
                 <Accordion.Body>
-                  <Movies movieData={this.props.movieData} />
+                  <Movies data={this.props.movieData} />
+                </Accordion.Body>
+              </Accordion.Item>
+              <Accordion.Item eventKey='2' className='Results-item' >
+                <Accordion.Header className='text-center' >Dining</Accordion.Header>
+                <Accordion.Body>
+                  <Dining data={this.props.diningData} />
                 </Accordion.Body>
               </Accordion.Item>
             </Accordion>
