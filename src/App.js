@@ -25,47 +25,44 @@ class App extends Component {
     this.setState({error: false, location: {}});
     e.preventDefault();
     try {
-      const key = process.env.REACT_APP_LOCATION_IQ_KEY;
-      const API = `https://us1.locationiq.com/v1/search?key=${key}&q=${searchVal}&format=json`;
-      const response = await axios.get(API);
-      
-      const loc = response.data[0];
-      const city = loc.display_name.split(',')[0];
-      const weatherResponse = await axios.get(`http://localhost:3001/weather?searchQuery=${city}&lat=${loc.lat}&lon=${loc.lon}`);
-      const weatherData = weatherResponse.data;
-      console.log(city, loc, weatherResponse, weatherData);
-      
-      const mapUrl = `https://maps.locationiq.com/v3/staticmap?key=${key}&center=${loc.lat},${loc.lon}&zoom=13&markers=icon:small-red-cutout|markerLocation=${loc.lat},${loc.lon}`
+      const locationKey = process.env.REACT_APP_LOCATION_IQ_KEY;
+      const server = process.env.REACT_APP_SERVER_ADDRESS;
 
-      this.setState({location: loc, mapUrl: mapUrl, weatherData: weatherData});
+      const locationResponse = await axios.get(`https://us1.locationiq.com/v1/search?key=${locationKey}&q=${searchVal}&format=json`);
+      
+      const loc = locationResponse.data[0];
+      const city = loc.display_name.split(',')[0];
+      
+      const mapUrl = `https://maps.locationiq.com/v3/staticmap?key=${locationKey}&center=${loc.lat},${loc.lon}&zoom=13&markers=icon:small-red-cutout|markerLocation=${loc.lat},${loc.lon}`
+      
+      const weatherResponse = await axios.get(`${server}/weather?lat=${loc.lat}&lon=${loc.lon}`);
+      const weatherData = weatherResponse.data;
+      // const weatherResponse = await axios.get(`http://api.weatherbit.io/v2.0/forecast/daily?key=${weatherKey}&lat=${loc.lat}&lon=${loc.lon}`)
+      // const weatherData = weatherResponse.data.data;
+
+      // console.log(`https://api.themoviedb.org/3/search/movie?api_key=${movieKey}&query=${city}`);
+      const movieResponse = await axios.get(`${server}/movies?query=${city}`);
+      const movieData = movieResponse.data;
+      // const movieResponse = await axios.get(`https://api.themoviedb.org/3/search/movie?api_key=${movieKey}&query=${city}`);
+      // const movieData = movieResponse.data.results;
+      
+      console.log(`%c${city}`, 'color: coral; font-weight: bold; font-size: 18px');
+      console.log('%cWeather Data', 'color: lightblue; font-weight: bold; font-size: 14px');
+      console.log(weatherResponse, weatherData);
+      console.log('%cMovie Data', 'color: lightblue; font-weight: bold; font-size: 14px');
+      console.log(movieResponse, movieData);
+      
+      this.setState({
+        location: loc, 
+        mapUrl: mapUrl, 
+        weatherData: weatherData, 
+        movieData: movieData
+      });
     } catch (error) {
       console.log(error);
       this.setState({error: true, errorMessage: error.message})
     }
   }
-
-  // renderResult = () => {
-  //   return(
-  //     <>
-  //       {this.state.location.display_name &&
-  //         <div className='Results row d-flex justify-content-center' >
-  //           <div className='Results-Data col-sm-4 text-start p-2'>
-  //             <h2 className='text-center'>Results:</h2>
-  //             <br />
-  //             <div><b>City: </b>{this.state.location.display_name}</div>
-  //             <br />
-  //             <div><b>Latitude: </b>{this.state.location.lat}</div>
-  //             <br />
-  //             <div><b>Longitude: </b>{this.state.location.lon}</div>
-  //           </div>
-  //           <div className='Results-Map col-auto p-2'>
-  //             <img src={this.state.mapUrl} alt='city map' />
-  //           </div>
-  //         </div>
-  //       }
-  //     </>
-  //   );
-  // }
 
   render() {
     return (
@@ -79,8 +76,14 @@ class App extends Component {
             <ErrorAlert errorMessage={this.state.errorMessage} />
           }
           <hr />
-          <SearchResult location={this.state.location} mapUrl={this.state.mapUrl} weatherData={this.state.weatherData} />
+          <SearchResult 
+            location={this.state.location} 
+            mapUrl={this.state.mapUrl} 
+            weatherData={this.state.weatherData} 
+            movieData={this.state.movieData}
+          />
         </main>
+        <div className='footer' ></div>
         <footer className='py-4'>
           &copy; Julian Barker, 2022
         </footer>
