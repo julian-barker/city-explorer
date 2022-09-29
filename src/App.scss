@@ -82,5 +82,5 @@ footer{
   bottom: 0;
   width: 100%;
   height: $footer-ht;
-  background-image: linear-gradient(to bottom, #52bbd6, #ebf8e1 60%, #f69d3c);
+  background-image: linear-gradient(to bottom, $primary, #f9f9ed 50%, #ff97e1 70%, #f69d3c);
 }
