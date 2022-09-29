@@ -10,7 +10,7 @@ class Weather extends Component {
     return(
       <div className='Results-item container-fluid mt-4' >
         <h3 className='text-center' >Weather Forecast</h3>
-        <Carousel className='carousel' >
+        <Carousel className='Carousel p-3 pb-5' >
           {weekly.map((v, i) => {
             return (
               <Carousel.Item className='' key={i} >

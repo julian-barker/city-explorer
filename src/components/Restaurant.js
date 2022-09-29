@@ -8,16 +8,14 @@ class Restaurant extends Component {
     const half = ((data.rating * 10) % 10) === 0 ? '' : '_half';
     const starsPath = `../assets/yelp_stars/${size}/${size}_${stars}${half}@2x.png`;
     return(
-      <>
+      <div className='py-4' >
         <h5>{`${data.name} (${data.price})`}</h5>
         <img src={starsPath} alt='yelp stars' className='d-block mx-auto' />
         <br />
         <img src={data.imageUrl} alt={`poster for ${data.name}`} width='300px' />
         <div> Phone: {data.phone} </div>
-        <a href={data.link} className='text-wrap' > Link to Yelp Page </a>
-        <br />
-        <hr />
-      </>
+        <a href={data.link} className='text-wrap' > Check Out on Yelp </a>
+      </div>
     );
   }
 

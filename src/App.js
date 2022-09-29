@@ -29,7 +29,7 @@ class App extends Component {
     try {
       const locationKey = process.env.REACT_APP_LOCATION_IQ_KEY;
       const servers = {local: process.env.REACT_APP_LOCAL_ADDRESS, heroku: process.env.REACT_APP_HEROKU_ADDRESS}
-      const currSource = 'heroku';
+      const currSource = 'local';
       const baseUrl = servers[currSource];
       console.log(baseUrl);
 

@@ -11,16 +11,16 @@ class SearchResult extends Component {
       <>
         {this.props.location.display_name &&
           <div className='Results d-flex flex-column align-items-center' >
-            <div className='row d-flex justify-content-center' >
-              <div className='Results-item col-sm-4 text-start p-2'>
+            <div className='row d-flex g-4 justify-content-center' >
+              <div className='Results-item col-sm-4 text-start p-2 mx-2'>
                 <h2 className='text-center'>Results:</h2>
                 <br />
                 <p><b>City: </b>{this.props.location.display_name}</p>
                 <p><b>Latitude: </b>{this.props.location.lat}</p>
                 <p><b>Longitude: </b>{this.props.location.lon}</p>
               </div>
-              <div className='Results-item col-auto p-2'>
-                <img src={this.props.mapUrl} alt='city map' />
+              <div className='Results-item col-auto p-2 mx-2'>
+                <img src={this.props.mapUrl} alt='city map' width='500px' />
               </div>
             </div>
             <br />
