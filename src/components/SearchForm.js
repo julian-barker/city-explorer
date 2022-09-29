@@ -15,7 +15,10 @@ class SearchForm extends Component {
 
   render() {
     return (
-      <form className='SearchForm container d-flex flex-column align-items-start w-50 p-1'>
+      <form 
+        className='SearchForm container d-flex flex-column align-items-start w-50 p-1'
+        onSubmit={(e) => this.props.submit(this.state.searchVal, e)}
+      >
         <Form.Label htmlFor="citySearch" className='ms-3'>Location</Form.Label>
         <div className='container d-flex' >
           <Form.Control
