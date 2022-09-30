@@ -7,6 +7,12 @@ import Dining from './Dining';
 class SearchResult extends Component {
 
   render() {
+    // console.log(this.props.location.display_name);
+    // const city = this.props.location.display_name.split(', ')[0];
+    // const region = this.props.location.display_name
+    //   .split(', ')
+    //   .slice(1)
+    //   .join(', ');
     return(
       <>
         {this.props.location.display_name &&
