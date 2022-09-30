@@ -25,6 +25,7 @@ Technologies: React, Javascript, Axios, LocationIQ Geolocating API
 ![diagram](./img/code-301-city-explorer-diagram.png)
 ![diagram](./img/code-301-city-explorer-weather-diagram.png)
 ![diagram](./img/code-301-city-explorer-API-diagram.png)
+![diagram](./img/code-301-city-explorer-cache-diagram.png)
 
 ## Change Log
 
